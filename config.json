@@ -1,19 +1,13 @@
 {
   "base_url": "https://wutali-nextjs-netlify-blog.netlify.app",
   "site_title": "Cold Email Studio",
-  "site_description": "Next.js blog template for Netlify",
+  "site_description": "Cold email studio does cold email as a service. Learn how to cold email for outbound lead generation",
   "site_keywords": [
-    {
-      "keyword": "Next.js"
-    },
-    {
-      "keyword": "Netlify"
-    },
-    {
-      "keyword": "React"
-    }
+    "cold email",
+    "lead generation",
+    "outbound marketing"
   ],
   "posts_per_page": 5,
-  "twitter_account": "@my-account",
-  "github_account": "wutali"
+  "twitter_account": "@xoxo_vc",
+  "github_account": "andrewpierno"
 }
