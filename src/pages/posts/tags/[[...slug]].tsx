@@ -4,6 +4,7 @@ import BasicMeta from "../../../components/meta/BasicMeta";
 import OpenGraphMeta from "../../../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../../../components/meta/TwitterCardMeta";
 import TagPostList from "../../../components/TagPostList";
+import Footer from "../../../components/Footer";
 import config from "../../../lib/config";
 import { countPosts, listPostContent, PostContent } from "../../../lib/posts";
 import { getTag, listTags, TagContent } from "../../../lib/tags";
@@ -12,13 +13,15 @@ import Head from "next/head";
 type Props = {
   posts: PostContent[];
   tag: TagContent;
+  tags: TagContent[];
   page?: string;
   pagination: {
     current: number;
     pages: number;
   };
 };
-export default function Index({ posts, tag, pagination, page }: Props) {
+export default function Index({ posts, tags, tag, pagination, page }: Props) {
+
   const url = `/posts/tags/${tag.name}` + (page ? `/${page}` : "");
   const title = tag.name;
   return (
@@ -27,6 +30,7 @@ export default function Index({ posts, tag, pagination, page }: Props) {
       <OpenGraphMeta url={url} title={title} />
       <TwitterCardMeta url={url} title={title} />
       <TagPostList posts={posts} tag={tag} pagination={pagination} />
+      <Footer tags={tags} />
     </Layout>
   );
 }
@@ -34,6 +38,8 @@ export default function Index({ posts, tag, pagination, page }: Props) {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const queries = params.slug as string[];
   const [slug, page] = [queries[0], queries[1]];
+  const tags = listTags();
+
   const posts = listPostContent(
     page ? parseInt(page as string) : 1,
     config.posts_per_page,
@@ -47,9 +53,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const props: {
     posts: PostContent[];
     tag: TagContent;
+    tags: TagContent[];
     pagination: { current: number; pages: number };
     page?: string;
-  } = { posts, tag, pagination };
+  } = { posts, tags, tag, pagination };
   if (page) {
     props.page = page;
   }

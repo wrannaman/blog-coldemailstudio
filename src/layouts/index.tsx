@@ -1,10 +1,12 @@
 import Head from "next/head";
+import Link from "next/link";
 import React from "react";
 import styles from "../../public/styles/content.module.css";
 import Author from "../components/Author";
 import Copyright from "../components/Copyright";
 import Date from "../components/Date";
 import Layout from "../components/Layout";
+import Footer from "../components/Footer";
 import BasicMeta from "../components/meta/BasicMeta";
 import JsonLdMeta from "../components/meta/JsonLdMeta";
 import OpenGraphMeta from "../components/meta/OpenGraphMeta";
@@ -62,7 +64,33 @@ export default function Index({
           author={authorName}
           description={description}
         />
-        <div className={"container"}>
+        <div className={"container "}>
+          <nav className="flex pb-10" aria-label="Breadcrumb">
+            <ol className="bg-white rounded-md shadow px-6 flex space-x-4">
+              <li className="flex">
+                <Link href="/">
+                  <div className="flex items-center">
+                      <a href="#" className="text-gray-400 hover:text-gray-500">
+                        <svg className="flex-shrink-0 h-5 w-5 transition duration-150 ease-in-out" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                          <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                        </svg>
+                      </a>
+                      <span className="sr-only">Home</span>
+                  </div>
+                </Link>
+              </li>
+              <li className="flex">
+                <div className="flex items-center space-x-4">
+                  <svg className="flex-shrink-0 w-6 h-full text-gray-200" viewBox="0 0 24 44" preserveAspectRatio="none" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M.293 0l22 22-22 22h1.414l22-22-22-22H.293z" />
+                  </svg>
+                  <span aria-current="page" className="text-sm leading-5 font-medium text-gray-500 hover:text-gray-700 transition duration-150 ease-in-out">
+                   {keywords && keywords.length > 0 ? keywords[0] : 'Post'}
+                  </span>
+                </div>
+              </li>
+            </ol>
+          </nav>
           <article>
             <header>
               <h1>{title}</h1>
@@ -84,12 +112,7 @@ export default function Index({
               ))}
             </ul>
           </article>
-          <footer>
-            <div className={"social-list"}>
-              <SocialList />
-            </div>
-            <Copyright />
-          </footer>
+          <Footer tags={tags} />
         </div>
         <style jsx>
           {`
@@ -204,7 +227,7 @@ export default function Index({
               color: #032f62;
             }
 
-            .language-jsx span[class="comment"] {
+            .language-jsx span[className="comment"] {
               color: pink;
             }
 

@@ -4,6 +4,8 @@ import Layout from "../../../components/Layout";
 import BasicMeta from "../../../components/meta/BasicMeta";
 import OpenGraphMeta from "../../../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../../../components/meta/TwitterCardMeta";
+import Footer from "../../../components/Footer";
+
 import PostList from "../../../components/PostList";
 import config from "../../../lib/config";
 import { countPosts, listPostContent, PostContent } from "../../../lib/posts";
@@ -21,13 +23,15 @@ type Props = {
 export default function Page({ posts, tags, pagination, page }: Props) {
   const url = `/posts/page/${page}`;
   const title = "All posts";
+  // <Layout>
+  //     <BasicMeta url={url} title={title} />
+  //     <OpenGraphMeta url={url} title={title} />
+  //     <TwitterCardMeta url={url} title={title} />
+  //     <PostList posts={posts} tags={tags} pagination={pagination} />
+  //     <Footer tags={{"four"}} />
+  //   </Layout>
   return (
-    <Layout>
-      <BasicMeta url={url} title={title} />
-      <OpenGraphMeta url={url} title={title} />
-      <TwitterCardMeta url={url} title={title} />
-      <PostList posts={posts} tags={tags} pagination={pagination} />
-    </Layout>
+    <div>do I ever render?</div>
   );
 }
 
