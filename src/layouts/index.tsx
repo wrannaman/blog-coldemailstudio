@@ -30,8 +30,11 @@ export default function Index({
   tags,
   description,
 }: Props) {
-  const keywords = tags.map((it) => getTag(it).name);
-  const authorName = getAuthor(author).name;
+  let keywords = tags && tags.length > 0 && tags.map((it) => getTag(it).name);
+  if (!keywords) keywords = [];
+  let authorName = author && getAuthor(author).name;
+  if (!authorName) authorName = "Andrew";
+  
   return ({ children: content }) => {
     return (
       <Layout>
@@ -74,7 +77,7 @@ export default function Index({
             </header>
             <div className={styles.content}>{content}</div>
             <ul className={"tag-list"}>
-              {tags.map((it, i) => (
+              {tags && tags.length > 0 && tags.map((it, i) => (
                 <li key={i}>
                   <TagButton tag={getTag(it)} />
                 </li>

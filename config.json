@@ -3,9 +3,9 @@
   "site_title": "Cold Email Studio",
   "site_description": "Cold email studio does cold email as a service. Learn how to cold email for outbound lead generation",
   "site_keywords": [
-    "cold email",
-    "lead generation",
-    "outbound marketing"
+    { "keyword": "cold email" },
+    { "keyword": "lead generation" },
+    { "keyword": "outbound marketing" }
   ],
   "posts_per_page": 5,
   "twitter_account": "@xoxo_vc",
