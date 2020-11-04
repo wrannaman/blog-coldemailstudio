@@ -12,9 +12,7 @@ export default function Navigation() {
       <div className={"container " + (active ? "active" : "")}>
         <ul>
           <li>
-            <Link href="/">
-              <a className={router.pathname === "/" ? "active" : null}>about</a>
-            </Link>
+            <a href="https://coldemail.studio">Main Site</a>
           </li>
           <li>
             <Link href="/posts">
@@ -23,7 +21,7 @@ export default function Navigation() {
                   router.pathname.startsWith("/posts") ? "active" : null
                 }
               >
-                blog
+                Blog
               </a>
             </Link>
           </li>
