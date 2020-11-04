@@ -38,9 +38,11 @@ export default function Navigation() {
             <div className="flex items-center">
               
               <div className="hidden md:ml-4 md:flex-shrink-0 md:flex md:items-center">
-                <button onClick={() => window.location = "https://coldemail.studio"} className="p-1 border-2 border-transparent text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:text-gray-500 focus:bg-gray-100 transition duration-150 ease-in-out" aria-label="Notifications">
-                  Main Site
-                </button>
+                <a href="https://coldemail.studio">
+                  <button  className="p-1 border-2 border-transparent text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:text-gray-500 focus:bg-gray-100 transition duration-150 ease-in-out" aria-label="Notifications">
+                    Main Site
+                  </button>
+                </a>
               </div>
             </div>
           </div>

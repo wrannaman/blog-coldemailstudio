@@ -28,7 +28,6 @@ export default function Index({ posts, tags, pagination }: Props) {
       <OpenGraphMeta url={url} title={title} />
       <TwitterCardMeta url={url} title={title} />
       <PostList posts={posts} tags={tags} pagination={pagination} />
-      <Footer tags={tags} />
     </Layout>
   );
 }
@@ -36,6 +35,7 @@ export default function Index({ posts, tags, pagination }: Props) {
 export const getStaticProps: GetStaticProps = async () => {
   const posts = listPostContent(1, config.posts_per_page);
   const tags = listTags();
+  console.log("tags", tags)
   const pagination = {
     current: 1,
     pages: Math.ceil(countPosts() / config.posts_per_page),

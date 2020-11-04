@@ -6,7 +6,6 @@ import Author from "../components/Author";
 import Copyright from "../components/Copyright";
 import Date from "../components/Date";
 import Layout from "../components/Layout";
-import Footer from "../components/Footer";
 import BasicMeta from "../components/meta/BasicMeta";
 import JsonLdMeta from "../components/meta/JsonLdMeta";
 import OpenGraphMeta from "../components/meta/OpenGraphMeta";
@@ -112,7 +111,6 @@ export default function Index({
               ))}
             </ul>
           </article>
-          <Footer tags={tags} />
         </div>
         <style jsx>
           {`

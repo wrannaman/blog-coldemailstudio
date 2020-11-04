@@ -4,11 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run tailwind:css && next build",
-    "start": "npm run tailwind:css && next start",
+    "build": "next build",
+    "start": "next start",
     "export": "next build && next export -o ./dist",
     "test": "jest",
-    "tailwind:css": "tailwind build src/tailwind.css -c tailwind.config.js -o src/index.css"
+    "tailwind:css": "tailwind build public/styles/global.css -c tailwind.config.js -o src/index.css"
   },
   "dependencies": {
     "@headlessui/react": "^0.2.0",

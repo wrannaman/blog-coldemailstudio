@@ -2,6 +2,8 @@ import Head from "next/head";
 import { getTag } from "../lib/tags";
 import Navigation from "./Navigation";
 import TagLink from "./TagLink";
+import { PostContent } from "../lib/posts";
+import { TagContent } from "../lib/tags";
 
 type Props = {
   posts: PostContent[];
